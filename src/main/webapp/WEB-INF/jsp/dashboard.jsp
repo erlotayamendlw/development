@@ -1,4 +1,9 @@
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="tables" tagdir="/WEB-INF/tags/tables" %>
+<%@ taglib prefix="nav" tagdir="/WEB-INF/tags/nav" %>
+<%@ taglib prefix="search" tagdir="/WEB-INF/tags/search" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,64 +31,16 @@
 <body id="page-top">
 
 <nav class="navbar navbar-expand static-top">
-
     <a class="navbar-brand mr-1" href="/"><img src=<c:url value='/_ui-src/resources/amba_logo.webp'/> width=150px></a>
 
-    <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle" href="#">
+    <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle" href="/admin">
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Navbar Search -->
-    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-primary amb-bg-colour-secondary" type="button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
-
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw amb-text-colour-secondary"></i>
-                <span class="badge badge-danger">9+</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw amb-text-colour-secondary"></i>
-                <span class="badge badge-danger">7</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </li>
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user-circle fa-fw amb-text-colour-secondary"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-            </div>
-        </li>
-    </ul>
+    <search:vipID/>
 
+    <nav:navbar/>
 </nav>
 
 <div id="wrapper">
@@ -106,76 +63,23 @@
 
             <!-- VIP Tables Navigation Tabs -->
             <div class="card mb-3">
-                <div class="nav nav-tabs " role="tablist">
-                    <a class="nav-item nav-link amb-text-colour-primary active" id="nav-vipUser-tab" data-toggle="tab" href="#amb-vipUser" role="tab" aria-selected="true">VIP Users</a>
-                    <a class="nav-item nav-link amb-text-colour-primary" id="nav-vipDevices-tab" data-toggle="tab" href="#amb-vipDevices" role="tab" aria-selected="true">VIP Devices</a>
-                    <a class="nav-item nav-link amb-text-colour-primary" id="nav-vipParameters-tab" data-toggle="tab" href="#amb-vipParameters" role="tab" aria-selected="true">VIP Parameters</a>
-                </div>
-
                 <div class="card-body tab-content" id="nav-tabContent">
 
-                    <!-- VIP User -->
-                    <div class="tab-pane fade show active table-responsive" id="amb-vipUser" role="tabpanel" aria-labelledby="amb-vipUser">
-                        <h4 class="text-center">VIP User</h4>
-                        <table class="table table-bordered" id="amb-vipUser-table" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>DeviceID</th>
-                                <th>DeviceName</th>
-                                <th>DeviceType</th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th>DeviceID</th>
-                                <th>DeviceName</th>
-                                <th>DeviceType</th>
-                            </tr>
-                            </tfoot>
+                    <!-- Please Search for VIP ID-->
+                    <div class="col-12 text-center" id="user-instruction">
+                        <h1>Please use the bar to find a VIP ID</h1>
+                    </div>
+                    <!-- Current State -->
+                    <div class="tab-pane fade active table-responsive datatable" id="amb-currentState">
+                        <h4 class="text-center">Current State</h4>
+                        <table class="table table-bordered" id="currentState" width="100%" cellspacing="0">
                         </table>
                     </div>
 
-                    <!-- VIP Devices -->
-                    <div class="tab-pane fade table-responsive" id="amb-vipDevices" role="tabpanel" aria-labelledby="amb-vipDevices">
-                        <h4 class="text-center">VIP Devices</h4>
-                        <table class="table table-bordered" id="amb-vipDevices-table" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>VIP ID</th>
-                                <th>Device ID</th>
-                                <th>Device Type</th>
-                                <th>Device Name</th>
-                                <th>Device Alias</th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th>VIP ID</th>
-                                <th>Device ID</th>
-                                <th>Device Type</th>
-                                <th>Device Name</th>
-                                <th>Device Alias</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-
-                    <!-- VIP Parameters -->
-                    <div class="tab-pane fade table-responsive" id="amb-vipParameters" role="tabpanel" aria-labelledby="amb-vipParameters">
-                        <h4 class="text-center">VIP Parameters</h4>
-                        <table class="table table-bordered" id="amb-vipParameters-table" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>Parameter Name</th>
-                                <th>Parameter Value</th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Parameter Name</th>
-                                <th>Parameter Value</th>
-                            </tr>
-                            </tfoot>
+                    <!-- Current State -->
+                    <div class="tab-pane fade active table-responsive datatable" id="amb-example">
+                        <h4 class="text-center">Sleep State</h4>
+                        <table class="table table-bordered" id="exampleTable" width="100%" cellspacing="0">
                         </table>
                     </div>
                 </div>
@@ -219,7 +123,7 @@
 <script src="<c:url value='/_ui-src/js/sb-admin.js'/>"></script>
 
 <!-- Demo scripts for this page-->
-<script src="<c:url value='/_ui-src/js/datatables.min.js'/>"></script>
+<script src="<c:url value='/_ui-src/js/datatables.js'/>"></script>
 </body>
 
 </html>
