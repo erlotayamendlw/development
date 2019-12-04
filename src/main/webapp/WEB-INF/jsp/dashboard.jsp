@@ -53,6 +53,46 @@
                 <span>Dashboard</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-currentState">
+                <span>Current State</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-devices">
+                <span>Devices</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-currentState">
+                <span>Current State</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-notificationHistory">
+                <span>Notification History</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-users">
+                <span>Users</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-params">
+                <span>Params</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-rawData">
+                <span>Raw Data</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#amb-rules">
+                <span>Rules</span>
+            </a>
+        </li>
     </ul>
 
     <div id="content-wrapper">
@@ -65,21 +105,57 @@
             <div class="card mb-3">
                 <div class="card-body tab-content" id="nav-tabContent">
 
-                    <!-- Please Search for VIP ID-->
-                    <div class="col-12 text-center" id="user-instruction">
-                        <h1>Please use the bar to find a VIP ID</h1>
-                    </div>
+<%--                    <!-- Please Search for VIP ID-->--%>
+<%--                    <div class="col-12 text-center" id="user-instruction">--%>
+<%--                        <h1>Please use the bar to find a VIP ID</h1>--%>
+<%--                    </div>--%>
+
                     <!-- Current State -->
-                    <div class="tab-pane fade active table-responsive datatable" id="amb-currentState">
-                        <h4 class="text-center">Current State</h4>
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-currentState">
+                        <h4 class="text-center hide">Current State</h4>
                         <table class="table table-bordered" id="currentState" width="100%" cellspacing="0">
                         </table>
                     </div>
 
-                    <!-- Current State -->
-                    <div class="tab-pane fade active table-responsive datatable" id="amb-example">
-                        <h4 class="text-center">Sleep State</h4>
-                        <table class="table table-bordered" id="exampleTable" width="100%" cellspacing="0">
+                    <!-- Devices -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-devices">
+                        <h4 class="text-center hide">Devices</h4>
+                        <table class="table table-bordered" id="devices" width="100%" cellspacing="0">
+                        </table>
+                    </div>
+
+                    <!-- Notification History -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-notificationHistory">
+                        <h4 class="text-center hide">Notification History</h4>
+                        <table class="table table-bordered" id="notificationHistory" width="100%" cellspacing="0">
+                        </table>
+                    </div>
+
+                    <!-- Users -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-users">
+                        <h4 class="text-center hide">Users</h4>
+                        <table class="table table-bordered" id="users" width="100%" cellspacing="0">
+                        </table>
+                    </div>
+
+                    <!-- Paramaters -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-params">
+                        <h4 class="text-center hide">Params</h4>
+                        <table class="table table-bordered" id="params" width="100%" cellspacing="0">
+                        </table>
+                    </div>
+
+                    <!-- Raw Data -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-rawData">
+                        <h4 class="text-center hide">Raw Data</h4>
+                        <table class="table table-bordered" id="rawData" width="100%" cellspacing="0">
+                        </table>
+                    </div>
+
+                    <!-- Rules -->
+                    <div class="tab-pane fade active show table-responsive datatable" id="amb-rules">
+                        <h4 class="text-center hide">Rules</h4>
+                        <table class="table table-bordered" id="rules" width="100%" cellspacing="0">
                         </table>
                     </div>
                 </div>

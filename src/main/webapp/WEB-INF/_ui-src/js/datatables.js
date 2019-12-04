@@ -1,119 +1,83 @@
+$.ajaxSetup({
+    async: false
+});
+
+var CURRENT_STATE_API = 'https://amba-api.azurewebsites.net/CurrentState/GetAllCurrentStateVipID?vipId=';
+var DEVICES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetDevices?vipId=';
+var NOTIFICATION_HISTORY_API = 'https://amba-api.azurewebsites.net/UIUsers/GetNotificationHistory?vipId=';
+var USERS_API = 'https://amba-api.azurewebsites.net/UIUsers/GetUsers?vipId=';
+var PARAMS_API = 'https://amba-api.azurewebsites.net/UIUsers/GetParams?vipId=';
+var RAW_DATA_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRawData?vipId=';
+var RULES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRules?vipId=';
+var DEFAULT_VIP_ID = 1;
+
 $(document).ready(function() {
-    // $('#amb-vipUser-table').DataTable( {
-    //     ajax:{
-    //         url: 'https://amba-api.azurewebsites.net/devices/GetAllDevices',
-    //         dataSrc: ''
-    //     },
-    //     dataType: 'json',
-    //     contentType: 'application/json; charset=utf-8',
-    //     type: "GET",
-    //     columns: [
-    //         { data: "DeviceID" },
-    //         { data: "DeviceName" },
-    //         { data: "DeviceType" }
-    //     ]
-    // } );
-    //
-    // $('#amb-vipParameters-table').DataTable( {
-    //     ajax:{
-    //         url: 'https://amba-api.azurewebsites.net/Parameters/GetAllParams',
-    //         dataSrc: ''
-    //     },
-    //     dataType: 'json',
-    //     contentType: 'application/json; charset=utf-8',
-    //     type: "GET",
-    //     columns: [
-    //         { data: "ParameterID" },
-    //         { data: "ParameterName" }
-    //     ]
-    // } );
-    //
-    // $('#amb-vipRules-table').DataTable( {
-    //     ajax:{
-    //         url: 'https://amba-api.azurewebsites.net/Rules/GetAllRules',
-    //         dataSrc: ''
-    //     },
-    //     dataType: 'json',
-    //     contentType: 'application/json; charset=utf-8',
-    //     type: "GET",
-    //     columns: [
-    //         { data: "RuleID" },
-    //         { data: "RuleName" }
-    //     ]
-    // } );
-
-    document.getElementById('input-vipID').onkeypress = function(e){
-        if (!e) e = window.event;
-        var keyCode = e.keyCode || e.which;
-        if (keyCode == '13'){
-            // Enter pressed
-            $('#button-vipID-submit').click();
-
-            return false;
-        }
-    }
+    let currentStateTable = getDataTableInstance(CURRENT_STATE_API + DEFAULT_VIP_ID, 'currentState');
+    let devicesTable = getDataTableInstance(DEVICES_API + DEFAULT_VIP_ID, 'devices');
+    let notificationHistoryTable = getDataTableInstance(NOTIFICATION_HISTORY_API + DEFAULT_VIP_ID, 'notificationHistory');
+    let usersTable = getDataTableInstance(USERS_API + DEFAULT_VIP_ID, 'users');
+    let paramsTable = getDataTableInstance(PARAMS_API + DEFAULT_VIP_ID, 'params');
+    let rawDataTable = getDataTableInstance(RAW_DATA_API + DEFAULT_VIP_ID, 'rawData');
+    let rulesTable = getDataTableInstance(RULES_API + DEFAULT_VIP_ID, 'rules');
 
     $('#button-vipID-submit').click(function(){
-        //show all tables
-        $('.datatable').addClass('show');
-        $('#user-instruction').addClass('d-none');
-
         var vipID = $('#input-vipID').val();
 
-        $('#amb-vipParameters-table').DataTable( {
-            ajax:{
-                url: 'https://amba-api.azurewebsites.net/Parameters/GetAllParams',
-                dataSrc: ''
-            },
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            type: "GET",
-            columns: [
-                { data: "ParameterID" },
-                { data: "ParameterName" }
-            ]
-        } );
+        redrawTable(CURRENT_STATE_API + vipID, currentStateTable, 'currentState');
+        redrawTable(DEVICES_API + vipID, devicesTable, 'devices');
+        redrawTable(NOTIFICATION_HISTORY_API + vipID, notificationHistoryTable, 'notificationHistory');
+        redrawTable(USERS_API + vipID, usersTable, 'users');
+        redrawTable(PARAMS_API + vipID, paramsTable, 'params');
+        redrawTable(RAW_DATA_API + vipID, rawDataTable, 'rawData');
+        redrawTable(RULES_API + vipID, rulesTable, 'rules');
+    });
+});
 
-        $.getJSON('https://amba-api.azurewebsites.net/CurrentState/GetAppSleepStateVipID?vipId=' + vipID, function(data) {
-            var my_columns = [];
+function getDataTableInstance(apiUrl, tableId) {
+    let my_columns = [];
+    let my_data = [];
 
-            $.each( data[0], function( key, value ) {
-                var my_item = {};
-                my_item.data = key;
-                my_item.title = key;
-                my_columns.push(my_item);
-            });
+    $.getJSON(apiUrl , function(data) {
+        let columns = [];
 
-            if ( $.fn.dataTable.isDataTable( '#exampleTable' ) ) {
-                $('#exampleTable').DataTable({
-                    data: data,
-                    "columns": my_columns
-                });
-            }else{
-                $('#example').DataTable( {
-                    paging: false
-                } );
-            }
+        $.each( data[0], function( key, value ) {
+            let my_item = {};
+            my_item.data = key;
+            my_item.title = key;
+            columns.push(my_item);
         });
 
-        $.getJSON('https://amba-api.azurewebsites.net/CurrentState/GetAllCurrentStateVipID?vipId=' + vipID, function(data) {
-            var my_columns = [];
+        my_data = data;
+        my_columns = columns;
 
-            $.each( data[0], function( key, value ) {
-                var my_item = {};
-                my_item.data = key;
-                my_item.title = key;
-                my_columns.push(my_item);
-            });
-
-            $('#currentState').DataTable({
-                data: data,
-                "columns": my_columns
-            });
-        });
     });
 
+    return $('#' + tableId).DataTable({
+        data: my_data,
+        "columns": my_columns
+    });
+}
 
+function redrawTable(apiUrl, table, tableId){
+    let my_columns = [];
+    let my_data = [];
 
+    $.getJSON(apiUrl , function(data) {
+        let columns = [];
 
-} );
+        $.each( data[0], function( key, value ) {
+            let my_item = {};
+            my_item.data = key;
+            my_item.title = key;
+            columns.push(my_item);
+        });
+
+        my_data = data;
+        my_columns = columns;
+
+    });
+
+    table.clear().draw();
+    table.rows.add(my_data); // Add new data
+    table.columns.adjust().draw();
+}
