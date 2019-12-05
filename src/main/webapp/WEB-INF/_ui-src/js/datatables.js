@@ -31,6 +31,11 @@ $(document).ready(function() {
         redrawTable(RAW_DATA_API + vipID, rawDataTable, 'rawData');
         redrawTable(RULES_API + vipID, rulesTable, 'rules');
     });
+
+    $("#search-vipID-form").submit(function(e) {
+        e.preventDefault();
+        $('#button-vipID-submit').click();
+    });
 });
 
 function getDataTableInstance(apiUrl, tableId) {

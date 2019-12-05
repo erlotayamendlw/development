@@ -30,23 +30,25 @@
 
 <body id="page-top">
 
-<nav class="navbar navbar-expand static-top">
-    <a class="navbar-brand mr-1" href="/"><img src=<c:url value='/_ui-src/resources/amba_logo.webp'/> width=150px></a>
+<div class="position-relative top-header">
+    <nav class="navbar navbar-expand static-top position-fixed bg-white amb-navbar-top">
+            <a class="navbar-brand mr-1" href="/"><img src=<c:url value='/_ui-src/resources/amba_logo.webp'/> width=150px></a>
 
-    <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle" href="/admin">
-        <i class="fas fa-bars"></i>
-    </button>
+            <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle" href="/admin">
+                <i class="fas fa-bars"></i>
+            </button>
 
-    <!-- Navbar -->
-    <search:vipID/>
+            <!-- Navbar -->
+            <search:vipID/>
 
-    <nav:navbar/>
-</nav>
-
+            <nav:navbar/>
+    </nav>
+</div>
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
+    <div class="sidebar">
+        <ul class="navbar-nav position-fixed">
         <li class="nav-item active">
             <a class="nav-link" href="/">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -61,11 +63,6 @@
         <li class="nav-item">
             <a class="nav-link" href="#amb-devices">
                 <span>Devices</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-currentState">
-                <span>Current State</span>
             </a>
         </li>
         <li class="nav-item">
@@ -94,7 +91,7 @@
             </a>
         </li>
     </ul>
-
+    </div>
     <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -118,42 +115,42 @@
                     </div>
 
                     <!-- Devices -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-devices">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-devices">
                         <h4 class="text-center hide">Devices</h4>
                         <table class="table table-bordered" id="devices" width="100%" cellspacing="0">
                         </table>
                     </div>
 
                     <!-- Notification History -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-notificationHistory">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-notificationHistory">
                         <h4 class="text-center hide">Notification History</h4>
                         <table class="table table-bordered" id="notificationHistory" width="100%" cellspacing="0">
                         </table>
                     </div>
 
                     <!-- Users -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-users">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-users">
                         <h4 class="text-center hide">Users</h4>
                         <table class="table table-bordered" id="users" width="100%" cellspacing="0">
                         </table>
                     </div>
 
                     <!-- Paramaters -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-params">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-params">
                         <h4 class="text-center hide">Params</h4>
                         <table class="table table-bordered" id="params" width="100%" cellspacing="0">
                         </table>
                     </div>
 
                     <!-- Raw Data -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-rawData">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-rawData">
                         <h4 class="text-center hide">Raw Data</h4>
                         <table class="table table-bordered" id="rawData" width="100%" cellspacing="0">
                         </table>
                     </div>
 
                     <!-- Rules -->
-                    <div class="tab-pane fade active show table-responsive datatable" id="amb-rules">
+                    <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-rules">
                         <h4 class="text-center hide">Rules</h4>
                         <table class="table table-bordered" id="rules" width="100%" cellspacing="0">
                         </table>

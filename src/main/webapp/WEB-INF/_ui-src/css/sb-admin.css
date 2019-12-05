@@ -10930,3 +10930,13 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #ee8135;
   border-color: #ee8135;
 }
+
+.top-header{
+  z-index: 1000;
+  height: 75px;
+}
+
+.amb-navbar-top{
+  background-color: #ffffff;
+  width: 100%;
+}
