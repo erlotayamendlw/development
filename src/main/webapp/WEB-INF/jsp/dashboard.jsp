@@ -32,16 +32,16 @@
 
 <div class="position-relative top-header">
     <nav class="navbar navbar-expand static-top position-fixed bg-white amb-navbar-top">
-            <a class="navbar-brand mr-1" href="/"><img src=<c:url value='/_ui-src/resources/amba_logo.webp'/> width=150px></a>
+        <a class="navbar-brand mr-1" href="/"><img src=
+                                                   <c:url value='/_ui-src/resources/amba_logo.webp'/> width=150px></a>
 
-            <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle" href="/admin">
-                <i class="fas fa-bars"></i>
-            </button>
+        <button class="btn btn-link btn-sm order-1 order-sm-0 amb-text-colour-secondary" id="sidebarToggle"
+                href="/admin">
+            <i class="fas fa-bars"></i>
+        </button>
 
-            <!-- Navbar -->
-            <search:vipID/>
-
-            <nav:navbar/>
+        <!-- Navbar -->
+        <search:vipID/>
     </nav>
 </div>
 <div id="wrapper">
@@ -49,48 +49,42 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul class="navbar-nav position-fixed">
-        <li class="nav-item active">
-            <a class="nav-link" href="/">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-currentState">
-                <span>Current State</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-devices">
-                <span>Devices</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-notificationHistory">
-                <span>Notification History</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-users">
-                <span>Users</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-params">
-                <span>Params</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-rawData">
-                <span>Raw Data</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#amb-rules">
-                <span>Rules</span>
-            </a>
-        </li>
-    </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-currentState">
+                    <span>Current State</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-devices">
+                    <span>Devices</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-notificationHistory">
+                    <span>Notification History</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-users">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-params">
+                    <span>Params</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-rawData">
+                    <span>Raw Data</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#amb-rules">
+                    <span>Rules</span>
+                </a>
+            </li>
+        </ul>
     </div>
     <div id="content-wrapper">
 
@@ -102,10 +96,10 @@
             <div class="card mb-3">
                 <div class="card-body tab-content" id="nav-tabContent">
 
-<%--                    <!-- Please Search for VIP ID-->--%>
-<%--                    <div class="col-12 text-center" id="user-instruction">--%>
-<%--                        <h1>Please use the bar to find a VIP ID</h1>--%>
-<%--                    </div>--%>
+                    <%--                    <!-- Please Search for VIP ID-->--%>
+                    <%--                    <div class="col-12 text-center" id="user-instruction">--%>
+                    <%--                        <h1>Please use the bar to find a VIP ID</h1>--%>
+                    <%--                    </div>--%>
 
                     <!-- Current State -->
                     <div class="tab-pane fade active show table-responsive datatable" id="amb-currentState">
@@ -118,6 +112,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-devices">
                         <h4 class="text-center hide">Devices</h4>
                         <table class="table table-bordered" id="devices" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
 
@@ -125,6 +124,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-notificationHistory">
                         <h4 class="text-center hide">Notification History</h4>
                         <table class="table table-bordered" id="notificationHistory" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
 
@@ -132,6 +136,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-users">
                         <h4 class="text-center hide">Users</h4>
                         <table class="table table-bordered" id="users" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
 
@@ -139,6 +148,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-params">
                         <h4 class="text-center hide">Params</h4>
                         <table class="table table-bordered" id="params" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
 
@@ -146,6 +160,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-rawData">
                         <h4 class="text-center hide">Raw Data</h4>
                         <table class="table table-bordered" id="rawData" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
 
@@ -153,6 +172,11 @@
                     <div class="tab-pane fade active show table-responsive datatable mt-5" id="amb-rules">
                         <h4 class="text-center hide">Rules</h4>
                         <table class="table table-bordered" id="rules" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
                         </table>
                     </div>
                 </div>
