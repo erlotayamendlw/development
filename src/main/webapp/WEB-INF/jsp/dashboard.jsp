@@ -180,7 +180,7 @@
                     </div>
 
                     <!-- Rules -->
-                    <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
+                    <div class="tab-pane fade active show table-responsive datatable mt-5"
                          id="amb-rules">
                         <a class="anchor" id="rulesLink"></a>
                         <h4 class="text-center hide">Rules</h4>
