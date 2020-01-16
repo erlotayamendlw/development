@@ -11,6 +11,10 @@ var RAW_DATA_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRawData?vipId=
 var RULES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRules?vipId=';
 
 $(document).ready(function () {
+    $(window).unload(function () {
+        $.cookies.del('name_of_your_cookie');
+    });
+    
     let defaultvipID = 1;
     if (localStorage.getItem("previousVIPID") != null) {
         defaultvipID = localStorage.getItem("previousVIPID");
