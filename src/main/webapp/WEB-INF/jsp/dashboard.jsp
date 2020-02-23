@@ -50,23 +50,18 @@
     <div class="sidebar">
         <ul class="navbar-nav position-fixed">
             <li class="nav-item">
+                <a class="nav-link" href="#usersLink">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#currentStateLink">
                     <span>Current State</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#devicesLink">
-                    <span>Devices</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#notificationsLink">
-                    <span>Notification History</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#usersLink">
-                    <span>Users</span>
+                <a class="nav-link" href="#rulesLink">
+                    <span>Rules</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -75,13 +70,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#notificationsLink">
+                    <span>Notification History</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#rawDataLink">
                     <span>Raw Data</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#rulesLink">
-                    <span>Rules</span>
+                <a class="nav-link" href="#devicesLink">
+                    <span>Devices</span>
                 </a>
             </li>
         </ul>
@@ -95,8 +95,22 @@
             <!-- VIP Tables Navigation Tabs -->
             <div class="card mb-3">
                 <div class="card-body tab-content" id="nav-tabContent">
-                    <!-- Current State -->
+                    <!-- Users -->
                     <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable"
+                         id="amb-users">
+                        <a class="anchor" id="usersLink"></a>
+                        <h4 class="text-center hide">Users</h4>
+                        <table class="table table-bordered" id="users" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <!-- Current State -->
+                    <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
                          id="amb-currentState">
                         <a class="anchor" id="currentStateLink"></a>
                         <h4 class="text-center hide">Current State</h4>
@@ -109,40 +123,12 @@
                         </table>
                     </div>
 
-                    <!-- Devices -->
+                    <!-- Rules -->
                     <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
-                         id="amb-devices">
-                        <a class="anchor" id="devicesLink"></a>
-                        <h4 class="text-center hide">Devices</h4>
-                        <table class="table table-bordered" id="devices" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>No data found for this VIP ID</th>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-
-                    <!-- Notification History -->
-                    <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
-                         id="amb-notificationHistory">
-                        <a class="anchor" id="notificationsLink"></a>
-                        <h4 class="text-center hide">Notification History</h4>
-                        <table class="table table-bordered" id="notificationHistory" width="100%" cellspacing="0">
-                            <thead>
-                            <tr>
-                                <th>No data found for this VIP ID</th>
-                            </tr>
-                            </thead>
-                        </table>
-                    </div>
-
-                    <!-- Users -->
-                    <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
-                         id="amb-users">
-                        <a class="anchor" id="usersLink"></a>
-                        <h4 class="text-center hide">Users</h4>
-                        <table class="table table-bordered" id="users" width="100%" cellspacing="0">
+                         id="amb-rules">
+                        <a class="anchor" id="rulesLink"></a>
+                        <h4 class="text-center hide">Rules</h4>
+                        <table class="table table-bordered" id="rules" width="100%" cellspacing="0">
                             <thead>
                             <tr>
                                 <th>No data found for this VIP ID</th>
@@ -165,6 +151,20 @@
                         </table>
                     </div>
 
+                    <!-- Notification History -->
+                    <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
+                         id="amb-notificationHistory">
+                        <a class="anchor" id="notificationsLink"></a>
+                        <h4 class="text-center hide">Notification History</h4>
+                        <table class="table table-bordered" id="notificationHistory" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No data found for this VIP ID</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+
                     <!-- Raw Data -->
                     <div class="border-bottom pb-5 tab-pane fade active show table-responsive datatable mt-5"
                          id="amb-rawData">
@@ -179,12 +179,12 @@
                         </table>
                     </div>
 
-                    <!-- Rules -->
+                    <!-- Devices -->
                     <div class="tab-pane fade active show table-responsive datatable mt-5"
-                         id="amb-rules">
-                        <a class="anchor" id="rulesLink"></a>
-                        <h4 class="text-center hide">Rules</h4>
-                        <table class="table table-bordered" id="rules" width="100%" cellspacing="0">
+                         id="amb-devices">
+                        <a class="anchor" id="devicesLink"></a>
+                        <h4 class="text-center hide">Devices</h4>
+                        <table class="table table-bordered" id="devices" width="100%" cellspacing="0">
                             <thead>
                             <tr>
                                 <th>No data found for this VIP ID</th>
@@ -192,6 +192,7 @@
                             </thead>
                         </table>
                     </div>
+
                 </div>
             </div>
 
