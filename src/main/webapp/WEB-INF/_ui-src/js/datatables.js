@@ -2,7 +2,7 @@ $.ajaxSetup({
     async: false
 });
 
-var CURRENT_STATE_API = 'https://amba-api.azurewebsites.net/CurrentState/GetAllCurrentStateVipID?vipId=';
+var CURRENT_STATE_API = 'https://amba-api.azurewebsites.net/UIUsers/GetCurrentState?vipId=';
 var DEVICES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetDevices?vipId=';
 var NOTIFICATION_HISTORY_API = 'https://amba-api.azurewebsites.net/UIUsers/GetNotificationHistory?vipId=';
 var USERS_API = 'https://amba-api.azurewebsites.net/UIUsers/GetUsers?vipId=';
@@ -25,8 +25,9 @@ $(document).ready(function () {
     let rawDataTable = getDataTableInstance(RAW_DATA_API + defaultvipID, 'rawData');
     let rulesTable = getDataTableInstance(RULES_API + defaultvipID, 'rules');
 
-    $('#button-vipID-submit').click(function () {
-        let vipID = $('#input-vipID').val();
+    $('.js-example-basic-single').on("change", function (e) {
+        let vipID = $('.js-example-basic-single').val();
+
         currentStateTable = redrawTable(CURRENT_STATE_API + vipID, currentStateTable, 'currentState');
         devicesTable = redrawTable(DEVICES_API + vipID, devicesTable, 'devices');
         notificationHistoryTable = redrawTable(NOTIFICATION_HISTORY_API + vipID, notificationHistoryTable, 'notificationHistory');
@@ -35,13 +36,11 @@ $(document).ready(function () {
         rawDataTable = redrawTable(RAW_DATA_API + vipID, rawDataTable, 'rawData');
         rulesTable = redrawTable(RULES_API + vipID, rulesTable, 'rules');
 
+        $(".current-vip-id").text("Current VIP ID: " + vipID);
         localStorage.setItem("previousVIPID", vipID);
     });
 
-    $("#search-vipID-form").submit(function (e) {
-        e.preventDefault();
-        $('#button-vipID-submit').click();
-    });
+    $(".current-vip-id").text("Current VIP ID: " + defaultvipID);
 });
 
 function getJSONfromAPI(apiUrl) {
