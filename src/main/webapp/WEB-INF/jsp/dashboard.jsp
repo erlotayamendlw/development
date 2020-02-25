@@ -235,8 +235,6 @@
 <script src="<c:url value='/_ui-src/js/sb-admin.js'/>"></script>
 <script src="<c:url value='/_ui-src/js/select2.js'/>"></script>
 <script src="<c:url value='/_ui-src/js/select2.full.js'/>"></script>
-
-<!-- Demo scripts for this page-->
 <script src="<c:url value='/_ui-src/js/datatables.js'/>"></script>
 <script src="<c:url value='/_ui-src/js/filter.js'/>"></script>
 </body>

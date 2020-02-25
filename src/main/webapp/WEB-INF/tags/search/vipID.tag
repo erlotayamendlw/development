@@ -7,7 +7,7 @@
         <%--            </button>--%>
         <%--        </div>--%>
         <div class="input-group-append">
-            <span class="current-vip-id card p-2"></span>
+            <span class="current-vip-id card p-2">Please select a VIP</span>
         </div>
         <div class="ml-4 input-group-append">
             <select class="js-example-basic-single" style="width: 200px;">
