@@ -2,13 +2,13 @@ $.ajaxSetup({
     async: false
 });
 
-let CURRENT_STATE_API = 'https://amba-api.azurewebsites.net/UIUsers/GetCurrentState?vipId=';
-let DEVICES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetDevices?vipId=';
-let NOTIFICATION_HISTORY_API = 'https://amba-api.azurewebsites.net/UIUsers/GetNotificationHistory?vipId=';
-let USERS_API = 'https://amba-api.azurewebsites.net/UIUsers/GetUsers?vipId=';
-let PARAMS_API = 'https://amba-api.azurewebsites.net/UIUsers/GetParams?vipId=';
-let RAW_DATA_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRawData?vipId=';
-let RULES_API = 'https://amba-api.azurewebsites.net/UIUsers/GetRules?vipId=';
+let CURRENT_STATE_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetCurrentState?vipId=';
+let DEVICES_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetDevices?vipId=';
+let NOTIFICATION_HISTORY_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetNotificationHistory?vipId=';
+let USERS_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetUsers?vipId=';
+let PARAMS_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetParams?vipId=';
+let RAW_DATA_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetRawData?vipId=';
+let RULES_API = 'https://amba-tst-api-app.azurewebsites.net/UIUsers/GetRules?vipId=';
 
 $(document).ready(function () {
 

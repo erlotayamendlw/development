@@ -14,7 +14,7 @@ dropdown.append('<option selected="true" disabled>Choose a VIP ID/Name</option>'
 dropdown.prop('selectedIndex', 0);
 
 
-const url = 'https://amba-api.azurewebsites.net/vip/GetAllVIPS';
+const url = 'https://amba-tst-api-app.azurewebsites.net/vip/GetAllVIPS';
 
 // Populate dropdown with list of provinces
 $.getJSON(url, function (data) {
